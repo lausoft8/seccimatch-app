@@ -1,0 +1,234 @@
+/* ===== REGISTER - ESTILOS MEJORADOS ===== */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #DC143C 0%, #B22222 50%, #8B0000 100%);
+}
+
+.register-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 50px 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 550px;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.register-card h2 {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 18px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-group select option {
+  background: #B22222;
+  color: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+.register-btn {
+  background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+  color: white;
+  border: none;
+  padding: 18px;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.register-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 65, 108, 0.5);
+}
+
+.register-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.error-message {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFD700;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  text-align: center;
+  margin-bottom: 25px;
+  backdrop-filter: blur(10px);
+}
+
+.switch-auth {
+  text-align: center;
+  margin-top: 30px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}
+
+.auth-link {
+  color: #FFD700;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.auth-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* ===== SECCIÓN TÉRMINOS MEJORADA ===== */
+.terms-section {
+  margin: 25px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  border-left: 4px solid #FFD700;
+  backdrop-filter: blur(10px);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 12px;
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  accent-color: #FFD700;
+}
+
+.checkbox-group label {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  cursor: pointer;
+  flex: 1;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.link {
+  color: #FFD700;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  color: white;
+}
+
+.checkbox-group input[type="checkbox"]:checked + label {
+  color: #90EE90;
+  font-weight: 600;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .register-card {
+    padding: 40px 30px;
+    margin: 20px;
+  }
+  
+  .register-card h2 {
+    font-size: 2rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-card {
+    padding: 30px 20px;
+  }
+  
+  .register-card h2 {
+    font-size: 1.8rem;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 15px;
+  }
+  
+  .terms-section {
+    padding: 15px;
+  }
+}
