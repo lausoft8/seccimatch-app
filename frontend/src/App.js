@@ -9,6 +9,8 @@ import PendingMatches from './components/PendingMatches';
 import TermsOfService from './components/TermsOfService';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Feed from './components/Feed';
+import config from './config';
+
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -38,7 +40,7 @@ function App() {
   // Conectar con el backend
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/users');
+      const response = await axios.get(`${config.API_URL}/api/users`);
       setUsers(response.data);
       setLoading(false);
     } catch (error) {

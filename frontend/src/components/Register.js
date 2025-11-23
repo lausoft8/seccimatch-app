@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import config from '../config';
 import './Register.css';
 import TermsOfService from './TermsOfService';
 import PrivacyPolicy from './PrivacyPolicy';
@@ -67,7 +68,7 @@ const Register = ({ onSwitchToLogin, onRegisterSuccess }) => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', {
+      const response = await axios.post(`${config.API_URL}/api/auth/register`, {
         nombre: formData.nombre,
         email: formData.email,
         password: formData.password,

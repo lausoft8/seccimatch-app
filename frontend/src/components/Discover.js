@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import config from '../config';
 import './Discover.css';
 
 const Discover = ({ currentUser, onBack }) => {
@@ -14,7 +15,7 @@ const Discover = ({ currentUser, onBack }) => {
   const fetchDiscoverUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/matches/discover', {
+      const response = await axios.get(`${config.API_URL}/api/matches/discover`, {
         headers: { Authorization: token }
       });
       setUsers(response.data);
@@ -29,7 +30,7 @@ const Discover = ({ currentUser, onBack }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        `http://localhost:5000/api/matches/like/${userId}`,
+        `${config.API_URL}/api/matches/like/${userId}`,
         {},
         { headers: { Authorization: token } }
       );
