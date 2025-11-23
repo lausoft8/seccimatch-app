@@ -165,6 +165,37 @@ app.get('/api/all-users', async (req, res) => {
   }
 });
 
+// Ruta para resetear toda la base de datos
+app.get('/api/reset-database', async (req, res) => {
+  try {
+    const { Match, Message, User } = require('./models');
+    const { Op } = require('sequelize');
+    
+    console.log('🔄 Reseteando base de datos...');
+    
+    // Eliminar en orden (por dependencias)
+    await Match.destroy({ where: {} });
+    await Message.destroy({ where: {} });
+    await User.destroy({ 
+      where: {
+        email: {
+          [Op.ne]: 'laura.gomez@ecci.edu.co'
+        }
+      }
+    });
+    
+    console.log('✅ Base de datos reseteada');
+    res.json({ 
+      message: '✅ Base de datos reseteada completamente',
+      users_remaining: ['laura.gomez@ecci.edu.co'],
+      tables_cleared: ['matches', 'messages', 'users']
+    });
+  } catch (error) {
+    console.error('❌ Error reseteando BD:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 
 // ⭐⭐ CAMBIO IMPORTANTE: Crear servidor HTTP para Socket.IO
