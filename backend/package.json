@@ -1,4 +1,13 @@
 {
+  "name": "seccimatch-backend",
+  "version": "1.0.0",
+  "description": "Backend para SECCImatch",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
@@ -8,5 +17,8 @@
     "mysql2": "^3.6.0",
     "sequelize": "^6.35.0",
     "socket.io": "^4.8.1"
-  }
+  },
+  "keywords": ["seccimatch", "backend", "mysql"],
+  "author": "Tu nombre",
+  "license": "MIT"
 }
