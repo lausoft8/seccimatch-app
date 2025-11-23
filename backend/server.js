@@ -12,14 +12,16 @@ const app = express();
 // ⭐⭐ CORRECCIÓN IMPORTANTE: Middleware CORS MEJORADO
 app.use(cors({
   origin: function (origin, callback) {
-    // Permitir solicitudes sin origen (como mobile apps o curl)
+    // Permitir sin origen (mobile apps, etc.)
     if (!origin) return callback(null, true);
     
     // Lista de orígenes permitidos
     const allowedOrigins = [
       'http://localhost:3000',
       'http://localhost:3001',
-      'https://tudominio.com'
+      'https://lausoft8.github.io',
+      'https://seccimatch-app.vercel.app',
+      'https://remarkable-crumble-2c6fd6.netlify.app'
     ];
     
     if (allowedOrigins.indexOf(origin) !== -1) {
@@ -28,9 +30,7 @@ app.use(cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+  credentials: true
 }));
 
 // Middleware para parsear JSON
